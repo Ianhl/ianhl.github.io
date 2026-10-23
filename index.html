@@ -1,0 +1,944 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ian Lartey · Computer Science Student & Developer</title>
+  <meta name="description" content="Ian Lartey is a computer science student, builder, and problem solver creating practical software solutions with an eye for design." />
+  <meta name="author" content="Ian Lartey" />
+  <meta name="theme-color" content="#faf9f6" />
+
+  <link rel="canonical" href="https://ianhl.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ian Lartey · Computer Science Student & Developer" />
+  <meta property="og:description" content="Computer science student, builder, and problem solver. I build practical software to solve real problems." />
+  <meta property="og:url" content="https://ianhl.github.io/" />
+  <meta property="og:site_name" content="Ian Lartey" />
+
+  <!-- Social profiles -->
+  <link rel="me" href="https://www.linkedin.com/in/ian-lartey" />
+  <link rel="me" href="https://github.com/Ianhl" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #faf9f6;
+      --surface: #ffffff;
+      --text: #242622;
+      --muted: #767973;
+      --accent: #42745b;
+      --accent-dark: #2f5944;
+      --accent-light: #eaf1eb;
+      --border: #e8e8e2;
+      --mark: #ffea67;
+
+      --font-body: "DM Sans", sans-serif;
+      --font-heading: "Manrope", sans-serif;
+
+      --page-width: 980px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: #c7dfcf;
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+      border-radius: 3px;
+    }
+
+    mark {
+      background: var(--mark);
+      color: #222;
+      padding: 2px 5px;
+      border-radius: 3px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .container {
+      width: min(var(--page-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.7px;
+    }
+
+    .brand-dot {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .text-link:hover {
+      color: var(--accent-dark);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 116px 0 100px;
+      max-width: 780px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin: 0 0 23px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-heading);
+    }
+
+    h1 {
+      font-size: clamp(54px, 8vw, 84px);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -4px;
+      margin-bottom: 26px;
+    }
+
+    .hero-description {
+      color: #626660;
+      font-size: clamp(18px, 2.4vw, 22px);
+      line-height: 1.65;
+      max-width: 650px;
+      margin-bottom: 36px;
+    }
+
+    .hero-description strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 50px;
+      padding: 12px 22px;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 650;
+      transition:
+        background 0.2s,
+        transform 0.2s;
+    }
+
+    .button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .button svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Now */
+
+    .now {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 23px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+    }
+
+    .now-label {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .now p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Sections */
+
+    section {
+      scroll-margin-top: 40px;
+    }
+
+    .section {
+      padding: 96px 0 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 28px;
+      line-height: 1.3;
+      letter-spacing: -1.2px;
+      margin: 0;
+      font-weight: 800;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Featured projects */
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition:
+        border-color 0.2s,
+        transform 0.2s;
+    }
+
+    .project:hover {
+      border-color: #c5d5c8;
+      transform: translateY(-3px);
+    }
+
+    .project:first-child {
+      grid-column: 1 / -1;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .project-category {
+      color: var(--accent);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+    }
+
+    .project-date {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .project h3 {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.3;
+      margin-bottom: 13px;
+    }
+
+    .project-description {
+      color: #626660;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .project-details {
+      margin: 0;
+      display: grid;
+      gap: 17px;
+    }
+
+    .project-details div {
+      display: grid;
+      gap: 3px;
+    }
+
+    .project-details dt {
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .project-details dd {
+      color: #626660;
+      font-size: 13px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .project-footer {
+      margin-top: auto;
+      padding-top: 27px;
+    }
+
+    .project-link,
+    .text-link {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: color 0.2s;
+    }
+
+    /* Work archive */
+
+    .work-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 105px minmax(0, 1fr) auto;
+      gap: 24px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .work-date {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .work-title {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 650;
+      margin: 0 0 4px;
+    }
+
+    .work-description {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* About */
+
+    .about {
+      max-width: 720px;
+    }
+
+    .about p {
+      color: #626660;
+      font-size: 16px;
+      line-height: 1.95;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      padding-bottom: 100px;
+    }
+
+    .contact-panel {
+      padding: 43px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .contact-panel h2 {
+      font-size: 28px;
+      letter-spacing: -1.2px;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 550px;
+      margin-bottom: 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px 30px;
+    }
+
+    .contact-links a {
+      font-size: 14px;
+      font-weight: 650;
+      color: var(--accent);
+      transition: color 0.2s;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 29px 0 35px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-inner a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 36px, var(--page-width));
+      }
+
+      .nav {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 80px 0 72px;
+      }
+
+      h1 {
+        letter-spacing: -2.8px;
+      }
+
+      .now {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .section {
+        padding-top: 74px;
+      }
+
+      .section-heading {
+        margin-bottom: 25px;
+      }
+
+      .project-list {
+        grid-template-columns: 1fr;
+      }
+
+      .project:first-child {
+        grid-column: auto;
+      }
+
+      .project {
+        padding: 25px;
+      }
+
+      .work-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .work-item .text-link {
+        margin-top: 5px;
+      }
+
+      .contact-section {
+        padding-bottom: 75px;
+      }
+
+      .contact-panel {
+        padding: 29px 24px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="brand" aria-label="Ian Lartey, back to top">
+        ian<span class="brand-dot">.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#featured">Projects</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <div class="container" id="home">
+      <section class="hero" aria-labelledby="hero-title">
+
+        <p class="eyebrow">Computer Science · Software Development</p>
+
+        <h1 id="hero-title">
+          Hey, I'm Ian Lartey<span class="brand-dot">.</span>
+        </h1>
+
+        <p class="hero-description">
+          I'm a <strong>computer science student, builder, and problem solver.</strong>
+          I turn real problems into working software, combining technical thinking
+          with an eye for design.
+        </p>
+
+        <a
+          class="button"
+          href="mailto:larteyian@gmail.com?subject=Summer%20Software%20Development%20Opportunity"
+        >
+          Let's talk about summer roles
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </section>
+
+      <!-- Current focus -->
+      <div class="now">
+        <div class="now-label">
+          <span class="status-dot" aria-hidden="true"></span>
+          Now
+        </div>
+
+        <p>
+          October 2026 —
+          <mark>[What are you building or learning this month?]</mark>
+        </p>
+      </div>
+    </div>
+
+    <!-- Featured -->
+    <section class="section container" id="featured">
+      <div class="section-heading">
+        <h2>Featured projects<span class="brand-dot">.</span></h2>
+        <span class="section-note">Selected work</span>
+      </div>
+
+      <div class="project-list">
+
+        <!-- Project 1: SOS Pay -->
+        <article class="project">
+          <div class="project-meta">
+            <span class="project-category">Fintech · Web Application</span>
+            <span class="project-date">Jan 2025</span>
+          </div>
+
+          <h3>SOS Pay</h3>
+
+          <p class="project-description">
+            A digital payment solution for my school, designed to make
+            everyday transactions easier to manage.
+          </p>
+
+          <dl class="project-details">
+            <div>
+              <dt>The problem</dt>
+              <dd>
+                School payments relied on physical cash, creating
+                challenges around convenience and handling money.
+              </dd>
+            </div>
+
+            <div>
+              <dt>My approach</dt>
+              <dd>
+                I built a digital payment application as an alternative
+                to cash-based transactions.
+                <mark>[What key technical decision did you make, and why?]</mark>
+              </dd>
+            </div>
+
+            <div>
+              <dt>The result</dt>
+              <dd>
+                Developed a digital payment solution for my school.
+                <mark>[Was it deployed or used by students?]</mark>
+              </dd>
+            </div>
+          </dl>
+
+          <!-- No project URL supplied. Add one here when available. -->
+        </article>
+
+        <!-- Project 2: SillyCon -->
+        <article class="project">
+          <div class="project-meta">
+            <span class="project-category">AI · Education</span>
+            <span class="project-date">Jan 2026</span>
+          </div>
+
+          <h3>SillyCon 2026 — AI Study Buddy</h3>
+
+          <p class="project-description">
+            An AI-powered study companion built to help students engage
+            with their learning material.
+          </p>
+
+          <dl class="project-details">
+            <div>
+              <dt>The problem</dt>
+              <dd>
+                Students need ways to interact with study material
+                and get help when learning.
+              </dd>
+            </div>
+
+            <div>
+              <dt>My approach</dt>
+              <dd>
+                Created an AI study buddy.
+                <mark>[Which AI features did you prioritize, and why?]</mark>
+              </dd>
+            </div>
+
+            <div>
+              <dt>The result</dt>
+              <dd>
+                Built the project for SillyCon 2026.
+                <mark>[What worked in the final demo?]</mark>
+              </dd>
+            </div>
+          </dl>
+
+          <!-- No project URL supplied. Add one here when available. -->
+        </article>
+
+        <!-- Project 3: NatHacks -->
+        <article class="project">
+          <div class="project-meta">
+            <span class="project-category">Computer Vision · EEG</span>
+            <span class="project-date">Nov 2025</span>
+          </div>
+
+          <h3>NatHacks 2025 — Impulse Buying</h3>
+
+          <p class="project-description">
+            Exploring how technology could help people make more
+            deliberate purchasing decisions.
+          </p>
+
+          <dl class="project-details">
+            <div>
+              <dt>The problem</dt>
+              <dd>
+                Impulse purchases can lead to unnecessary spending
+                and consumption.
+              </dd>
+            </div>
+
+            <div>
+              <dt>My approach</dt>
+              <dd>
+                Developed a solution combining virtual try-on (VTON)
+                and EEG signals.
+                <mark>[Why did you choose this combination?]</mark>
+              </dd>
+            </div>
+
+            <div>
+              <dt>The result</dt>
+              <dd>
+                Developed the solution during NatHacks 2025.
+                <mark>[What did the prototype demonstrate?]</mark>
+              </dd>
+            </div>
+          </dl>
+
+          <!-- No project URL supplied. Add one here when available. -->
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Work Archive -->
+    <section class="section container" id="work">
+      <div class="section-heading">
+        <h2>Work<span class="brand-dot">.</span></h2>
+        <span class="section-note">Projects & experiments over time</span>
+      </div>
+
+      <div class="work-list">
+
+        <!-- ADD NEW WORK HERE: copy one item, paste it at the top, edit it -->
+
+        <article class="work-item">
+          <time class="work-date" datetime="2026-01">Jan 2026</time>
+          <div>
+            <h3 class="work-title">SillyCon 2026</h3>
+            <p class="work-description">
+              Created an AI study buddy for students.
+            </p>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <time class="work-date" datetime="2025-11">Nov 2025</time>
+          <div>
+            <h3 class="work-title">NatHacks 2025</h3>
+            <p class="work-description">
+              Built a solution using VTON and EEG to address impulse buying.
+            </p>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <time class="work-date" datetime="2025-01">Jan 2025</time>
+          <div>
+            <h3 class="work-title">SOS Pay</h3>
+            <p class="work-description">
+              Developed a digital payment application for my school.
+            </p>
+          </div>
+        </article>
+
+        <!-- Future entries:
+        <article class="work-item">
+          <time class="work-date" datetime="YYYY-MM">Month Year</time>
+          <div>
+            <h3 class="work-title">Project name</h3>
+            <p class="work-description">What you built or worked on.</p>
+          </div>
+          <a class="text-link" href="YOUR-ACTUAL-LINK">
+            View ↗
+          </a>
+        </article>
+        -->
+
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section container" id="about">
+      <div class="section-heading">
+        <h2>A little about me<span class="brand-dot">.</span></h2>
+      </div>
+
+      <div class="about">
+        <p>
+          I'm a computer science student who enjoys breaking down
+          difficult problems and building software that solves them.
+          I'm especially interested in work where I can combine
+          engineering, practical problem-solving, and thoughtful design.
+          Outside of coding, I explore photography, art and design,
+          play different instruments, and make music — interests
+          that shape how I think about the things I build.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section container contact-section" id="contact">
+      <div class="contact-panel">
+
+        <h2>Let's connect<span class="brand-dot">.</span></h2>
+
+        <p>
+          I'm interested in summer opportunities in software development
+          and technology. If you're building something interesting
+          and think I could contribute, I'd like to hear about it.
+        </p>
+
+        <div class="contact-links">
+
+          <a href="mailto:larteyian@gmail.com">
+            Email ↗
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/ian-lartey"
+            rel="me noopener noreferrer"
+            target="_blank"
+          >
+            LinkedIn ↗
+          </a>
+
+          <a
+            href="https://github.com/Ianhl"
+            rel="me noopener noreferrer"
+            target="_blank"
+          >
+            GitHub ↗
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Ian Lartey</p>
+      <p>Built with care, curiosity, and a little CSS.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
